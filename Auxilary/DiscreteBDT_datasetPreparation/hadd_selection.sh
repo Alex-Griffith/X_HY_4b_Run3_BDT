@@ -1,9 +1,13 @@
 mode=$1
 year=$2
 #rm datasets/*root
+eosprefix="root://cmsxrootd.fnal.gov/"
+eosls() {
+    xrdfs root://cmseos.fnal.gov ls "$1" | awk -F '/' '{print $NF}'
+}
 input_dir=/store/user/xinlong/XHY4bRun3_selection_"$mode"_BDT
 output_dir="./datasets/"
-eosmkdir -p "$output_dir"
+mkdir -p "$output_dir"
 echo "TEST!"
 files=$( eosls $input_dir | grep "$year"_ | grep "nom" )
 prefix=$eosprefix$input_dir/
