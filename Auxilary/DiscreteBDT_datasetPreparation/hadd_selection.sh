@@ -9,7 +9,7 @@ input_dir=/store/user/xinlong/XHY4bRun3_selection_"$mode"_BDT
 output_dir="./datasets/"
 mkdir -p "$output_dir"
 echo "TEST!"
-files=$( eosls $input_dir | grep "$year"_ | grep "nom" )
+files=$( eosls $input_dir | grep RegSig | grep "$year"_ | grep "nom" )
 prefix=$eosprefix$input_dir/
 declare -A classified_files
 declare -A classified_file_idxs
